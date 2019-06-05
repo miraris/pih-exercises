@@ -42,3 +42,23 @@ safetail' xs
 safetail'' :: [a] -> [a]
 safetail'' [] = []
 safetail'' (_:xs) = xs
+
+------------------------
+or' :: Bool -> Bool -> Bool
+True `or'` True = True
+True `or'` False = True
+False `or'` True = True
+False `or'` False = False
+
+or'' :: Bool -> Bool -> Bool
+or'' False False = False
+or'' _ _ = True
+
+or''' :: Bool -> Bool -> Bool
+or''' False b = b
+or''' True _ = True
+
+or'''' :: Bool -> Bool -> Bool
+or'''' b c
+  | b == c = c
+  | otherwise = True
