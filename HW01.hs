@@ -44,12 +44,13 @@ sumDigits ns = sum $ concatMap toRevDigits ns
 
 luhnDigits :: Integer -> Integer
 luhnDigits n =
+  sum $
   map
     (\x ->
        if x > 9
          then x - 9
          else x)
-    (doubleEveryOther $ toRevDigits n) . sum
+    (doubleEveryOther $ toRevDigits n)
 
 -- Validate a credit card number using the above functions.
 luhn :: Integer -> Bool
